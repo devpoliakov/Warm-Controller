@@ -110,11 +110,9 @@ void setup() {
   rtc.writeProtect(false);
   rtc.halt(false);
 
-  // Make a new time object to set the date and time.
-  // Sunday, September 22, 2013 at 01:38:50.
-  Time t(2017, 3, 26, 9, 50, 00, Time::kSunday);
-
-  // Set the time and date on the chip.
+  // Set a time (time format and sett command)
+  // year, months, day, hour (one number), minutes, seconds, kDay
+  //Time t(2017, 12, 19, 0, 25, 00, Time::kTuesday);
   //rtc.time(t);
 }
 
