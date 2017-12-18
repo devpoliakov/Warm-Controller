@@ -22,6 +22,7 @@ int buttonState = 0;
 const int ledPin =  13;
 const int buttonPin = 2;
 
+
 // Create a DS1302 object.
 DS1302 rtc(kCePin, kIoPin, kSclkPin);
 
@@ -77,7 +78,8 @@ void printTime_min() {
   
   buttonState = digitalRead(buttonPin);
 
-
+// start warm in time diapason
+/*
   if (
     (t.hr == 23 and t.min > 5)
   or ((t.hr == 5 and t.min > 30) 
@@ -94,7 +96,31 @@ delay(3600000);
     digitalWrite(10, LOW);
     digitalWrite(ledPin, LOW);
   }
+*/
 
+// interval enabling 15/10 mins
+
+  for (int i = 0; i < 15 * 60; ++i) {
+    Serial.println(i);
+    
+      if(i > 10 * 60 ){
+        
+      digitalWrite(10, HIGH);
+      digitalWrite(ledPin, HIGH); 
+      }
+      else  {
+      digitalWrite(10, LOW);
+      digitalWrite(ledPin, LOW);
+
+    }
+
+    
+     delay(1000);
+    }
+
+
+
+// end of interval function
 
   Serial.println(buf);
 }
